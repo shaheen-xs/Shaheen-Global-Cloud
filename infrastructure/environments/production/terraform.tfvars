@@ -1,0 +1,7 @@
+project_name = "shaheen-global-cloud"
+environment  = "production"
+vm_name      = "shaheen-vm-01"
+hostname     = "vm-01.shaheen.cloud"
+plan         = "small"
+region       = "us-east-1"
+image        = "ubuntu-24.04"

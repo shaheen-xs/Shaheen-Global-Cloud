@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-ink-800;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-100 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-ink-300 text-ink-950;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-600;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-ink-900/60 backdrop-blur-xl border border-ink-800/60;
+  }
+
+  .glass-card {
+    @apply bg-ink-900/40 backdrop-blur-xl border border-ink-800/50 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-ink-700 hover:bg-ink-900/60 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply px-5 py-2.5 rounded-xl bg-ink-100 text-ink-950 font-medium text-sm
+           transition-all duration-200 hover:bg-white hover:shadow-glow
+           active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-5 py-2.5 rounded-xl bg-ink-800/60 text-ink-200 font-medium text-sm
+           border border-ink-700/50 transition-all duration-200
+           hover:bg-ink-800 hover:text-white hover:border-ink-600
+           active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-xl text-ink-400 font-medium text-sm
+           transition-all duration-200 hover:text-ink-100 hover:bg-ink-800/40;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-ink-900/60 border border-ink-800
+           text-ink-100 placeholder-ink-500 text-sm
+           transition-all duration-200
+           focus:outline-none focus:border-ink-600 focus:bg-ink-900
+           focus:ring-1 focus:ring-ink-600/30;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-500/10 text-amber-400 border border-amber-500/20;
+  }
+
+  .badge-error {
+    @apply badge bg-red-500/10 text-red-400 border border-red-500/20;
+  }
+
+  .badge-neutral {
+    @apply badge bg-ink-700/40 text-ink-300 border border-ink-600/30;
+  }
+
+  .status-dot {
+    @apply inline-block w-2 h-2 rounded-full;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-ink-800 via-ink-700 to-ink-800 bg-[length:200%_100%] animate-shimmer rounded-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-b from-white via-ink-100 to-ink-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}

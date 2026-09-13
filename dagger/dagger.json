@@ -1,0 +1,11 @@
+{
+  "name": "shaheen-global-cloud",
+  "sdk": "python",
+  "dependencies": [
+    {
+      "name": "python",
+      "source": "python:3.11"
+    }
+  ],
+  "source": "main.py"
+}
