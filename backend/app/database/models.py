@@ -59,7 +59,6 @@ class Server(Base):
     # Provider information
     provider: Mapped[str] = mapped_column(String(50), nullable=False, default="mock")  # mock, linode
     provider_server_id: Mapped[str | None] = mapped_column(String(255), nullable=True)
-    provider_label: Mapped[str | None] = mapped_column(String(255), nullable=True)
     
     # Server state
     status: Mapped[ServerStatus] = mapped_column(
