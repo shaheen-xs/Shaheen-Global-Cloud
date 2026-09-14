@@ -34,8 +34,6 @@ class Settings(BaseSettings):
 
     # Provider Configuration
     PROVIDER_TYPE: str = os.getenv("PROVIDER_TYPE", "mock")  # mock, linode
-    PROVIDER_API_TOKEN: str | None = os.getenv("PROVIDER_API_TOKEN", None)
-    PROVIDER_REGION: str = os.getenv("PROVIDER_REGION", "us-east")
     
     # Linode-specific settings
     LINODE_API_TOKEN: str | None = os.getenv("LINODE_API_TOKEN", None)
